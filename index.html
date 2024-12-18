@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online Lorem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/js/all.min.js"></script>
+</head>
+<style>
+
+    .hidden {
+        display: none;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .fade-out {
+        animation: fadeIn 1s ease-in-out reverse;
+    }
+    
+</style>
+<body>
+    
+    <header>  
+        <nav class="bg-gray-800 text-white py-4 sticky top-0 z-50">  
+            <div class="container mx-auto px-4">  
+                <div class="flex justify-between items-center">  
+                    <div class="flex items-center">  
+                        <h1 class="text-2xl font-bold">  
+                            <i class="fa fa-shop text-2xl hover:text-gray-800 mr-2"></i> Toko Lorem  
+                        </h1>  
+                    </div>  
+                    <div class="hidden md:flex" id="hamburger">  
+                        <ul class="flex space-x-4 mr-6">  
+                            <li><a href="#hero" class="hover:text-gray-300">Beranda</a></li>  
+                            <li><a href="#products" class="hover:text-gray-300">Produk</a></li>  
+                            <li><a href="#about" class="hover:text-gray-300">Tentang Kami</a></li>  
+                        </ul>  
+                        <div class="flex items-center space-x-4">  
+                            <button class="text-white text-xl hover:text-gray-300" onclick="openCart()">  
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>  
+                            </button>  
+                            <button class="text-white text-xl hover:text-gray-300" onclick="openHistoryfromHero()">  
+                                <i class="fa fa-history" aria-hidden="true"></i>  
+                            </button>  
+                            <button class="text-white text-xl hover:text-gray-300" onclick="openAccount()">  
+                                <i class="fa fa-user" aria-hidden="true"></i>  
+                            </button>  
+                        </div>  
+                    </div>  
+                    <div class="md:hidden">  
+                        <button class="text-white text-xl hover:text-gray-300" onclick="toggleMenu()">  
+                            <i class="fa fa-bars"></i>  
+                        </button>  
+                    </div>  
+                </div>  
+                <div id="mobile-menu" class="hidden md:hidden bg-gray-800">  
+                    <ul class="flex flex-col items-center space-y-4 p-4 text-center">  
+                        <li><a href="#hero" class="hover:text-gray-300">Beranda</a></li>  
+                        <li><a href="#products" class="hover:text-gray-300">Produk</a></li>  
+                        <li><a href="#about" class="hover:text-gray-300">Tentang Kami</a></li>  
+                    </ul>  
+                    <div class="flex justify-center space-x-4 mt-4">  
+                        <button class="text-white text-xl hover:text-gray-300" onclick="openCart()">  
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>  
+                        </button>  
+                        <button class="text-white text-xl hover:text-gray-300" onclick="openHistoryfromHero()">  
+                            <i class="fa fa-history" aria-hidden="true"></i>  
+                        </button>  
+                        <button class="text-white text-xl hover:text-gray-300" onclick="openAccount()">  
+                            <i class="fa fa-user" aria-hidden="true"></i>  
+                        </button>  
+                    </div>  
+                </div>  
+            </div>  
+        </nav>   
+    </header>
+
+    <main class="bg-gray-100 py-4 fade-in" id="hero">
+
+        <div class="container mx-auto px-4 header">
+            <div class="py-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Toko Lorem</h1>
+                <p class="text-gray-600 mb-8">Selamat datang di Toko Lorem! Kami menyediakan berbagai produk Seperti pakaian, sepatu, dan elektronik.</p>
+                <a href="#products" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"><i class="fa fa-search text-lg hover:text-gray-800 mr-2"></i>Eksplor Sekarang</a>  
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4" id="popularCategoryCard">
+            <div class="card bg-white shadow-md rounded-lg p-4" id="card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Kategori Terpopuler di Toko Lorem</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-gray-200 p-4 rounded">
+                        <h3 class="text-lg font-bold text-gray-800">Pakaian</h3>
+                        <p class="text-gray-600">Pakaian yang menarik untukmu</p>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <h3 class="text-lg font-bold text-gray-800">Sepatu</h3>
+                        <p class="text-gray-600">Sepatu yang menarik untukmu</p>
+                    </div>
+                    <div class="bg-gray-200 p-4 rounded">
+                        <h3 class="text-lg font-bold text-gray-800">Elektronik</h3>
+                        <p class="text-gray-600">Elektronik yang menarik untukmu</p>
+                    </div>
+            </div>
+        </div>
+
+        <div class="card container mx-auto px-4" id="products">
+            
+            <div class="py-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">Produk Kami</h2>
+
+                <!-- Input Pencarian dan Filter Pencarian -->
+                <div class="flex items-center mb-4">
+                    <input type="text" placeholder="🔍 Cari produk" class="w-full p-2 border rounded" id="searchInput">
+                    <select name="filter" class="w-full p-2 border rounded" id="filter">
+                        <option value="">Semua Kategori</option>
+                        <option value="pakaian">Pakaian</option>
+                        <option value="sepatu">Sepatu</option>
+                        <option value="elektronik">Elektronik</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Produk 1" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">IPhone 15 Pro</h3>
+                        <p class="text-gray-600 mb-2">IPhone 15 Pro adalah produk terbaru dari Apple, dengan desain yang elegan dan performa yang luar biasa.</p>
+                        <p class="text-green-600" id="stock">Stok Tersedia</p>
+                        <p class="text-gray-600 mb-4" id="price">Rp. 18.000.000</p>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2" onclick="addtoCart()"><i class="fa fa-cart-plus text-lg hover:text-gray-800 mr-2"></i>Beli Sekarang</a>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Produk 2" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Kemeja Biru Premium</h3>
+                        <p class="text-gray-600 mb-2">Kemeja biru premium dengan desain yang elegan dan berkualitas.</p>
+                        <p class="text-orange-400" id="stock">Stok Sisa Sedikit</p>
+                        <p class="text-gray-600 mb-4" id="price">Rp. 120.000</p>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2" onclick="addtoCart()"><i class="fa fa-cart-plus text-lg hover:text-gray-800 mr-2"></i>Beli Sekarang</a>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Produk 3" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Macbook Pro</h3>
+                        <p class="text-gray-600 mb-2">Macbook Pro adalah produk terbaru dari Apple, dengan desain yang elegan dan performa yang luar biasa. di lengkapi dengan teknologi terbaru</p>
+                        <p class="text-green-600" id="stock">Stok Tersedia</p>
+                        <p class="text-gray-600 mb-4" id="price">Rp. 13.000.000</p>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2" onclick="addtoCart()"><i class="fa fa-cart-plus text-lg hover:text-gray-800 mr-2"></i>Beli Sekarang</a>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Produk 4" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Canon EOS R5</h3>
+                        <p class="text-gray-600 mb-2">Canon EOS R5 adalah produk kamera terbaru dari Canon, dengan desain yang elegan dan prosesor digic 6 yang luar biasa.</p>
+                        <p class="text-green-600" id="stock">Stok Tersedia</p>
+                        <p class="text-gray-600 mb-4" id="price">Rp. 18.000.000</p>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2" onclick="addtoCart()"><i class="fa fa-cart-plus text-lg hover:text-gray-800 mr-2"></i>Beli Sekarang</a>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Produk 5" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Lexar Gold High Performance Series 256GB</h3>
+                        <p class="text-gray-600 mb-2">Lexar Gold High Performance Series 256GB adalah produk penyimpanan terbaru dari Lexar, dengan performa yang luar biasa.</p>
+                        <p class="text-red-400" id="stock">Stok Tidak Tersedia</p>
+                        <p class="text-gray-600 mb-4" id="price">Rp. 18.000.000</p>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2" onclick="addtoCart()"><i class="fa fa-cart-plus text-lg hover:text-gray-800 mr-2"></i>Beli Sekarang</a>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Produk 6" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">HP Victus 16 Ryzen 7</h3>
+                        <p class="text-gray-600 mb-2">HP Victus 16 Ryzen 7 adalah produk laptop terbaru dari HP, dengan desain yang elegan dan performa yang luar biasa.</p>
+                        <p class="text-orange-400" id="stock">Stok Sisa Sedikit</p>
+                        <p class="text-gray-600 mb-4" id="price">Rp. 15.000.000</p>
+                        <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2" onclick="addtoCart()"><i class="fa fa-cart-plus text-lg hover:text-gray-800 mr-2"></i>Beli Sekarang</a>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center mt-4">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2">Sebelumnya</button>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4" id="blog">
+            <div class="py-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Artikel Terbaru</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Artikel 1" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Cara Memilih Pakaian yang Cocok untukmu</h3>
+                        <p class="text-gray-600 mb-2">Pilih pakaian yang cocok untukmu dengan memperhatikan gaya dan warna.</p>
+                        <p class="text-gray-600">By Admin</p>
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2"><i class="fa fa-arrow-right text-lg hover:text-gray-800 mr-2"></i>Baca Selengkapnya</button>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Artikel 2" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Cara Memilih Sepatu yang Cocok untukmu</h3>
+                        <p class="text-gray-600 mb-2">Pilih sepatu yang cocok untukmu dengan memperhatikan gaya dan warna.</p>
+                        <p class="text-gray-600">By Admin</p>
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2"><i class="fa fa-arrow-right text-lg hover:text-gray-800 mr-2"></i>Baca Selengkapnya</button>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <img src="https://via.placeholder.com/400x300?text=Foto+Tidak+Tersedia" alt="Artikel 3" class="w-full">
+                        <h3 class="text-lg font-bold text-gray-800 mt-2">Cara Memilih Elektronik yang Cocok untukmu</h3>
+                        <p class="text-gray-600 mb-2">Pilih elektronik yang cocok untukmu dengan memperhatikan gaya dan warna.</p>
+                        <p class="text-gray-600">By Admin</p>
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2"><i class="fa fa-arrow-right text-lg hover:text-gray-800 mr-2"></i>Baca Selengkapnya</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4" id="about">
+            <div class="card py-8 bg-white shadow-md rounded-lg p-4 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Tentang Toko Lorem</h2>
+                <p class="text-gray-600 mb-4">Toko Lorem adalah toko online yang berdiri sejak tahun 2023. Kami menyediakan berbagai produk Seperti pakaian, sepatu, dan elektronik. Kami menyediakan berbagai produk dengan kualitas terbaik dan harga yang terjangkau. Selamat berbelanja di Toko Lorem!</p>
+                <p class="text-gray-600">Alamat: Jl. Lorem ipsum, No. 123, Kota Lorem, Provinsi Lorem</p>
+                <p class="text-gray-600">Telepon: +1234567890</p>
+                <p class="text-gray-600">Email: admin@tokolorem.com</p>
+                <p class="text-gray-600">Website: www.tokolorem.com</p>
+                <p class="text-gray-600">Instagram: @tokolorem</p>
+                <p class="text-gray-600">Facebook: Toko Lorem</p>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4" id="contact">
+            <div class="py-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
+                <p class="text-gray-600 mb-4">Jika Anda memiliki pertanyaan atau ingin bertanya, silakan hubungi kami melalui email atau melalui form berikut:</p>
+                <p class="text-gray-600">Email: <a href="mailto:admin@tokolorem.com" class="text-blue-500 hover:underline">admin@tokolorem.com</a></p>
+                <p class="text-gray-600">Telepon: <a href="tel:+1234567890" class="text-blue-500 hover:underline">+1234567890</a></p>
+            </div>
+
+                <div class="card bg-white shadow-md rounded-lg p-4 mb-8">
+                    <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">Form Kontak</h3>
+                    <form class="mt-4" action="#" method="post">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Nama:</label>
+                            <input type="text" id="name" name="name" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Email:</label>
+                            <input type="email" id="email" name="email" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-bold mb-2">Pesan:</label>
+                            <textarea id="message" name="message" class="w-full p-2 border rounded" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="sendEmail()"><i class="fa fa-paper-plane text-lg hover:text-gray-800 mr-2"></i>Kirim Pesan</button>
+                    </form>
+                </div>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <button class="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="scrollToTop()"><i class="fa fa-arrow-up"></i></button>
+    </main>
+
+    <main class="cart fade-in hidden" id="cart">
+        <!-- Ada Keranjang Belanja, Detail Pembelian, dan Pembayaran serta pengiriman -->
+
+        <div class="container mx-auto px-4">
+            <div class="py-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Keranjang Belanja</h2>
+
+                <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">Detail Pembelian</h3>
+                <table class="w-full border-collapse border border-gray-300 text-left mb-2">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="border border-gray-300 px-4 py-2">Produk</th>
+                            <th class="border border-gray-300 px-4 py-2">Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">IPhone 15 Pro</td>
+                            <td class="border border-gray-300 px-4 py-2">Rp. 18.000.000</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">Kemeja Biru Premium</td>
+                            <td class="border border-gray-300 px-4 py-2">Rp. 120.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-gray-600 mb-4">Kami akan mengirimkan pesanan Anda melalui email atau melalui metode pembayaran yang Anda pilih.</p>
+
+                <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">Pembayaran</h3>
+                <p class="text-gray-600 mb-4">Kami menyediakan berbagai metode pembayaran, seperti transfer bank, e-wallet, dan pembayaran tunai.</p>
+                <select name="payment" class="w-full p-2 border rounded" id="" required>
+                    <option value="">Pilih Metode Pembayaran</option>
+                    <option value="bank">Transfer Bank</option>
+                    <option value="kartu-kredit">Kartu Kredit</option>
+                    <option value="bca">BCA</option>
+                    <option value="bni">BNI</option>
+                    <option value="bri">BRI</option>
+                    <option value="mandiri">Mandiri</option>
+                    <option value="gopay">GoPay</option>
+                    <option value="dana">Dana</option>
+                    <option value="shopee">ShopeePay</option>
+                    <option value="ovo">OVO</option>
+                    <option value="qris">QRIS</option>
+                    <option value="cash">Pembayaran Tunai (COD)</option>
+                </select>
+
+                <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">Pengiriman</h3>
+                <p class="text-gray-600 mb-4">Kami akan mengirimkan pesanan Anda melalui email atau melalui metode pembayaran yang Anda pilih.</p>
+                <input type="text" placeholder="Masukkan alamat pengiriman" class="w-full p-2 border rounded" required>
+                <h3 class="text-md font-bold text-gray-800 mt-4 mb-2">Metode Pengiriman</h3>
+                <select name="shipping" class="w-full p-2 border rounded" id="" required>
+                    <option value="">Pilih Metode Pengiriman</option>
+                    <option value="jne">JNE</option>
+                    <option value="jnt">JNT</option>
+                    <option value="lp">LP</option>
+                    <option value="pos">POS</option>
+                    <option value="tiki">TIKI</option>
+                    <option value="gosend">GoSend</option>
+                    <option value="grabexpress">Grab Express</option>
+                </select>
+
+                <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">Ringkasan Pembayaran</h3>
+                <table class="w-full border-collapse border border-gray-300 text-left mb-2">
+                    <tbody class="bg-white">
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">Total Harga</td>
+                            <td class="border border-gray-300 px-4 py-2">Rp. 18.120.000</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">Biaya Pengiriman</td>
+                            <td class="border border-gray-300 px-4 py-2">Rp. 45.000</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-300 px-4 py-2">Total Pembayaran</td>
+                            <td class="border border-gray-300 px-4 py-2">Rp. 18.165.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="flex justify-end mt-4">
+                    <a href="#" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2" onclick="closeCart()">Kembali</a>
+                    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="buyNow()">Beli Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Halaman history yang di lengkapi dengan riwayat pembelian -->
+    <main class="history fade-in hidden" id="history">
+        <div class="container mx-auto px-4">
+            <div class="py-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Riwayat Pembelian</h2>
+
+                <!-- Daftar Riwayat Pembelian -->
+                <div class="card bg-white shadow-md rounded-lg p-4 mb-8">
+                    <h3 class="text-lg font-bold text-gray-800 mt-2 mb-2">Pembelian 26/11/2024</h3>
+                    <table class="w-full border-collapse border border-gray-300 text-left mb-4">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="border border-gray-300 px-4 py-2">Produk</th>
+                                <th class="border border-gray-300 px-4 py-2">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">IPhone 15 Pro</td>
+                                <td class="border border-gray-300 px-4 py-2">Rp. 18.000.000</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">Kemeja Biru</td>
+                                <td class="border border-gray-300 px-4 py-2">Rp. 120.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Total Pembayran dan Status Pembayaran tanpa Tabel -->
+                     <p class="text-gray-600">Biaya Pengiriman: Rp. 45.000</p>
+                    <p class="text-gray-600">Total Pembayaran: Rp. 18.165.000</p>
+                    <p class="text-gray-600">Metode Pembayaran: <span class="text-gray-600 font-bold">Transfer Bank</span></p>
+                    <p class="text-gray-600">Status Pembayaran: <span class="text-orange-500 font-bold">Menunggu Pembayaran</span></p>
+                </div>
+
+                <div class="card bg-white shadow-md rounded-lg p-4 mt-4 mb-8">
+                    <h3 class="text-lg font-bold text-gray-800 mt-2 mb-2">Pembelian 13/08/2024</h3>
+                    <table class="w-full border-collapse border border-gray-300 text-left mb-4">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="border border-gray-300 px-4 py-2">Produk</th>
+                                <th class="border border-gray-300 px-4 py-2">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">HP Victus 16 Ryzen 7</td>
+                                <td class="border border-gray-300 px-4 py-2">Rp. 15.000.000</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-2">Mouse Wireless</td>
+                                <td class="border border-gray-300 px-4 py-2">Rp. 80.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- Total Pembayran dan Status Pembayaran tanpa Tabel -->
+                     <p class="text-gray-600">Biaya Pengiriman: Rp. 45.000</p>
+                    <p class="text-gray-600">Total Pembayaran: Rp. 15.125.000</p>
+                    <p class="text-gray-600">Metode Pembayaran: <span class="text-gray-600 font-bold">Transfer Bank</span></p>
+                    <p class="text-gray-600">Status Pembayaran: <span class="text-green-500 font-bold">Selesai</span></p>
+                </div>
+
+
+            </div>
+            <div class="flex justify-end mt-4 mb-4">
+                <a href="#" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2" onclick="closeHistory()">Kembali</a>
+            </div>
+        </div>
+    </main>
+
+    <main class="account fade-in hidden" id="account">
+        <div class="container mx-auto px-4">
+            <div class="py-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Akun Saya</h2>
+
+                <div class="card bg-white shadow-md rounded-lg p-4 mb-8">
+                    <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">Informasi Akun</h3>
+                    <p class="text-gray-600 mb-4">Nama: Al-Ghani</p>
+                    <p class="text-gray-600 mb-4">Email: the323.game@gmail.com</p>
+                    <p class="text-gray-600 mb-4">Nomor Telepon: +62-811-1035-42</p>
+                    <p class="text-gray-600 mb-4">Alamat: Jalan Raya, Kota Samarinda, Kalimantan Timur, Indonesia</p>
+                    <p class="text-gray-600 mb-4">Nomor Rekening: 1234567890</p>
+                    <p class="text-gray-600 mb-4">Bank: Bank Mandiri</p>
+                </div>
+
+                <!-- Tombol Edit Profil dan Kembali -->
+                <div class="flex justify-end mt-4 mb-4">
+                    <a href="#" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded mr-2" onclick="editProfile()">Edit Profil</a>
+                    <a href="#" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded" onclick="openAccount()">Kembali</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main class="hidden" id="edit-profile">
+            <div class="container mx-auto px-4">
+                <div class="py-8">
+
+                <div class="card bg-white shadow-md rounded-lg p-4 mb-8">
+                    <h3 class="text-lg font-bold text-gray-800 mt-4 mb-2">Ubah Informasi Akun</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Nama:</label>
+                            <input type="text" id="name" name="name" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-bold mb-2">Email:</label>
+                            <input type="email" id="email" name="email" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 font-bold mb-2">Nomor Telepon:</label>
+                            <input type="tel" id="phone" name="phone" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="address" class="block text-gray-700 font-bold mb-2">Alamat:</label>
+                            <input type="text" id="address" name="address" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="account-number" class="block text-gray-700 font-bold mb-2">Nomor Rekening:</label>
+                            <input type="text" id="account-number" name="account-number" class="w-full p-2 border rounded" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="bank" class="block text-gray-700 font-bold mb-2">Bank:</label>
+                            <input type="text" id="bank" name="bank" class="w-full p-2 border rounded" required>
+                        </div>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" onclick="saveProfile()"><i class="fas fa-save"></i> Simpan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-4">
+            <p class="text-center">&copy; 2024 Toko Lorem. Dibuat untuk Lomba Web Design SMK 7 oleh <a href="https://github.com/fk0u/" class="text-orange-400 hover:text-orange-600">Al-Ghani</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
